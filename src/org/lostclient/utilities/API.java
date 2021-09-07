@@ -7,7 +7,7 @@ public class API {
     public static String currentBranch = "";
     public static String currentLeaf = "";
     public static int tickTimeout = 0;
-    public static long sleepLength;
+    public static long sleepLength = 100;
 
     // Sleep Settings
     public static int sleepMin = 60;
