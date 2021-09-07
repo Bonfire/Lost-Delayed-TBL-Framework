@@ -33,7 +33,7 @@ public abstract class Branch<T extends AbstractScript> extends Leaf<T> {
                     API.currentBranch = this.getClass().getSimpleName();
                     API.currentLeaf = tLeaf.getClass().getSimpleName();
                     return tLeaf.onLoop();
-                }).orElse((int) Calculations.nextGaussianRandom(350, 250));
+                }).orElse((int) API.getSleepDelay());
 
     }
 }

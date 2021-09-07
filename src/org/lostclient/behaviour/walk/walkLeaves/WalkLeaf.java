@@ -18,6 +18,7 @@ public class WalkLeaf extends Leaf<Main> {
         // Note here that walking is done in a while loop. Meaning if your path is long, this will only delay the first walking call
         Interaction.delayWalk(Players.localPlayer().getSurroundingArea(3).getRandomTile(), API.getSleepDelay());
 
+        // Return our loop return method (this will reset the tick delay)
         return API.loopReturn();
     }
 }

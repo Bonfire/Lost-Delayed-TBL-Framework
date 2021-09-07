@@ -10,7 +10,7 @@ import org.lostclient.api.wrappers.walking.Walking;
 public class Interaction {
     public static void delayEntityInteract(Entity entity, MenuAction action, long sleepDelay) {
         MethodProvider.sleep(sleepDelay);
-        new InteractionEvent(entity, action).executed();
+        new InteractionEvent(entity, action).execute();
     }
 
     public static void delayWalk(Locatable locatable, long sleepDelay) {
