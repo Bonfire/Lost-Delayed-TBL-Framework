@@ -1,8 +1,10 @@
-# Lost-Tick-TBL-Framework
+# Lost-Delayed-TBL-Framework
 
 An augmented Tree-Branch-Leaf framework that also includes tick delays and delayed interacts. Specifically made for LostClient.
 
-Note that for delayed interacts, follow the example code I've written under the `Interaction.java` class. You must write a wrapper around your interact code and supply delays.
+Notes:
+* To utilize tick delays, be sure that you always return `API.loopReturn()` in your leaves
+* To utilize delayed interacts, follow the example code I've written under the `Interaction.java` class. You must write a wrapper around your interact code and supply delays.
 
 ## Setup
 
