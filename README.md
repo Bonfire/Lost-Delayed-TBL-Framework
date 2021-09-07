@@ -15,11 +15,15 @@ Notes:
 ## Structure
 
 - `src/org/lostclient/behaviour` - This is where your branches and leaves should be defined. They describe the functionality of your script. I'd recommend not touching the `tick` functionality unless you know what you are doing.
+  -  `timeout` - This behavior branch is called anytime there is a "tick timeout" (`Timing.tickTimeout > 0`). It will take priority over all other branches/leaves, decrement the `tickTimeout` by one, then wait 600ms (one tick).
+  -  `fallback` - This is the "fallback" branch, to prevent tick timeout deadlocks. This behavior branch is only called if there is a tick timeout (`Timing.tickTimeout > 0`) and there are no other valid leaves. It will reset the tick timeout to a random value using `Timing.loopReturn()`.
+  -  `combat` - An example behavior branch that shows how tick timeouts and sleep delays can be used. For actions that requires little to no delay between ticks the current tick timeout can be set to a small value (`Timing.tickTimeout = 1`). Then have the leaf return immediately (`return 0;`)
 - `src/org/lostclient/framework` - This contains the core of the Tree-Branch framework code. Credits to LostVirt.
 - `src/org/lostclient/paint` - Where the core of the script paint code is defined. Credits to Fluffy.
 - `src/org/lostclient/utilities` - Contains our utility classes (and it's where you should define any future utility classes).
-  - `API.java` - Holds current tree information as well as sleep delay and tick delay settings. Modify the settings to your liking. Also contains the method used in deriving both delays.
+  - `API.java` - Holds current tree information.
   - `Interaction.java` - An example interaction helper that utilizes the framework's sleep delay system. Do note that some interactions are handled by the client (such as walking a path), so only the first action will have a delay.
+  - `Timing.java` - Sleep delay and tick delay settings. Modify the settings to your liking. Also contains the method used in deriving both delays.
 - `src/org/lostclient/Main.java` - Where you change your script's manifest, branches/leaves, and paint.
 
 ## Credits
