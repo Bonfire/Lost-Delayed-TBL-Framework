@@ -1,4 +1,4 @@
-# Lost-Delay-TBL-Framework
+# Lost-Delayed-TBL-Framework
 
 An augmented Tree-Branch-Leaf framework that also includes tick delays and delayed interacts. Specifically made for LostClient.
 
