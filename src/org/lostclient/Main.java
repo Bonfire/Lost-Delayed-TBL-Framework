@@ -75,7 +75,7 @@ public class Main extends AbstractScript implements Painter, PaintInfo {
                 AbstractScript.getScriptName() + " V" + AbstractScript.getScriptVersion(),
                 "Current Branch: " + API.currentBranch,
                 "Current Leaf: " + API.currentLeaf,
-                "Timeout: " + Timing.tickTimeout,
+                "Tick Timeout: " + Timing.tickTimeout,
                 "Sleep Delay: " + Timing.sleepLength + "ms"
         };
     }
