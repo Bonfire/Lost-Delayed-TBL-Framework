@@ -1,7 +1,6 @@
 package org.lostclient.framework;
 
 import org.lostclient.api.script.AbstractScript;
-import org.lostclient.api.utilities.math.Calculations;
 import org.lostclient.utilities.API;
 
 import java.util.Collections;
@@ -33,7 +32,6 @@ public abstract class Branch<T extends AbstractScript> extends Leaf<T> {
                     API.currentBranch = this.getClass().getSimpleName();
                     API.currentLeaf = tLeaf.getClass().getSimpleName();
                     return tLeaf.onLoop();
-                }).orElse((int) API.sleepLength);
-
+                }).orElse(600);
     }
 }

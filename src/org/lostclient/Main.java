@@ -3,16 +3,19 @@ package org.lostclient;
 import org.lostclient.api.listeners.Painter;
 import org.lostclient.api.script.AbstractScript;
 import org.lostclient.api.script.ScriptManifest;
-import org.lostclient.behaviour.tick.TickBranch;
-import org.lostclient.behaviour.tick.tickLeaves.TickLeaf;
+import org.lostclient.behaviour.combat.CombatBranch;
+import org.lostclient.behaviour.combat.leaves.CombatLeaf;
+import org.lostclient.behaviour.fallback.FallbackLeaf;
+import org.lostclient.behaviour.timeout.TimeoutLeaf;
 import org.lostclient.framework.Tree;
 import org.lostclient.paint.CustomPaint;
 import org.lostclient.paint.PaintInfo;
 import org.lostclient.utilities.API;
+import org.lostclient.utilities.Timing;
 
 import java.awt.*;
 
-@ScriptManifest(author = "Bonfire", name = "TickTreeBranch", version = 1.00)
+@ScriptManifest(author = "Bonfire", name = "LostDelayedTBL", version = 1.00)
 public class Main extends AbstractScript implements Painter, PaintInfo {
 
     // Instantiate the tree to hold our branches and leaves
@@ -39,12 +42,22 @@ public class Main extends AbstractScript implements Painter, PaintInfo {
         instantiateTree();
     }
 
+    @Override
+    public void onExit() {
+        Timing.tickTimeout = 0;
+        Timing.sleepLength = 0;
+    }
+
     // Add all of the branches and leaves to the tree
     private void instantiateTree() {
         tree.addBranches(
-                new TickBranch().addLeafs(new TickLeaf())
-
+                new TimeoutLeaf(),
                 // Place your own branches and leaves below this
+
+                new CombatBranch().addLeafs(new CombatLeaf()),
+
+                // Place your own branches and leaves above this
+                new FallbackLeaf()
         );
     }
 
@@ -62,8 +75,8 @@ public class Main extends AbstractScript implements Painter, PaintInfo {
                 AbstractScript.getScriptName() + " V" + AbstractScript.getScriptVersion(),
                 "Current Branch: " + API.currentBranch,
                 "Current Leaf: " + API.currentLeaf,
-                "Timeout: " + API.tickTimeout,
-                "Sleep Delay: " + API.sleepLength + "ms"
+                "Timeout: " + Timing.tickTimeout,
+                "Sleep Delay: " + Timing.sleepLength + "ms"
         };
     }
 
