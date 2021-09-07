@@ -17,7 +17,6 @@ public class TimeoutLeaf extends Leaf<Main> {
     public int onLoop() {
         // Decrement the tick timeout by one and wait for exactly one tick (600ms)
         Timing.tickTimeout--;
-        MethodProvider.log(String.valueOf(Timing.tickTimeout));
         return 600;
     }
 }
