@@ -63,7 +63,7 @@ public class Main extends AbstractScript implements Painter, PaintInfo {
                 "Current Branch: " + API.currentBranch,
                 "Current Leaf: " + API.currentLeaf,
                 "Timeout: " + API.tickTimeout,
-                "Sleep Delay: " + API.sleepLength
+                "Sleep Delay: " + API.sleepLength + "ms"
         };
     }
 
