@@ -5,7 +5,7 @@ import org.lostclient.api.utilities.MethodProvider;
 import org.lostclient.framework.Leaf;
 import org.lostclient.utilities.Timing;
 
-public class TimeoutLeaf extends Leaf<Main> {
+public class TimeoutLeaf extends Leaf {
 
     // If this leaf is called, that means that there is currently a tick timeout
     @Override

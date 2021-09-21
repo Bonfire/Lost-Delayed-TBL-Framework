@@ -12,7 +12,7 @@ import org.lostclient.utilities.Timing;
 
 import java.util.List;
 
-public class CombatLeaf extends Leaf<Main> {
+public class CombatLeaf extends Leaf {
 
     @Override
     public boolean isValid() {

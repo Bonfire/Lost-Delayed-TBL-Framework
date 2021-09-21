@@ -4,7 +4,7 @@ import org.lostclient.Main;
 import org.lostclient.framework.Leaf;
 import org.lostclient.utilities.Timing;
 
-public class FallbackLeaf extends Leaf<Main> {
+public class FallbackLeaf extends Leaf {
 
     @Override
     public boolean isValid() {
