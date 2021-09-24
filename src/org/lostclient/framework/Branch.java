@@ -8,16 +8,16 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 
-public abstract class Branch<T extends AbstractScript> extends Leaf<T> {
+public abstract class Branch extends Leaf {
 
-    public final List<Leaf<T>> children;
+    public final List<Leaf> children;
 
     public Branch() {
         this.children = new LinkedList<>();
     }
 
 
-    public Branch<T> addLeafs(Leaf<T>... leaves) {
+    public Branch addLeafs(Leaf... leaves) {
         Collections.addAll(this.children, leaves);
         return this;
     }

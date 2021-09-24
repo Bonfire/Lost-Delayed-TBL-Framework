@@ -8,10 +8,10 @@ import org.lostclient.behaviour.combat.leaves.CombatLeaf;
 import org.lostclient.behaviour.fallback.FallbackLeaf;
 import org.lostclient.behaviour.timeout.TimeoutLeaf;
 import org.lostclient.framework.Tree;
-import org.lostclient.paint.CustomPaint;
-import org.lostclient.paint.PaintInfo;
 import org.lostclient.utilities.API;
 import org.lostclient.utilities.Timing;
+import org.lostclient.api.utilities.paint.CustomPaint;
+import org.lostclient.api.utilities.paint.PaintInfo;
 
 import java.awt.*;
 
@@ -19,7 +19,7 @@ import java.awt.*;
 public class Main extends AbstractScript implements Painter, PaintInfo {
 
     // Instantiate the tree to hold our branches and leaves
-    private final Tree<Main> tree = new Tree<>();
+    private final Tree tree = new Tree();
 
     // Instantiate the paint object. This can be customized to your liking.
     private final CustomPaint CUSTOM_PAINT = new CustomPaint(this,

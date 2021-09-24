@@ -6,14 +6,14 @@ import org.lostclient.api.script.AbstractScript;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Tree<T extends AbstractScript> {
-    private final Root<T> root;
+public class Tree {
+    private final Root root;
 
     public Tree() {
-        root = new Root<>();
+        root = new Root();
     }
 
-    public Leaf<T> addBranches(Leaf<T>... leaves) {
+    public Leaf addBranches(Leaf... leaves) {
         root.addLeafs(leaves);
         return root;
     }
